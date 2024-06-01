@@ -1,0 +1,253 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+body{
+  /* font-family: "Poppins", sans-serif; */
+  font-family: "Shantell Sans", cursive;
+}
+
+
+.se-component figure{
+  margin: auto !important;
+  display: block !important;
+  /* padding-top: 15px; */
+  /* padding-bottom: 30px; */
+  max-width: 100% !important;
+  
+}  
+
+.se-component figure img{
+  max-width: 98% !important;
+}
+
+.sun-editor .se-wrapper .se-wrapper-inner{
+  height: 100% !important;
+}
+
+.postcontent ul, .se-wrapper ol{
+  margin-bottom: 40px;
+  margin-top: 20px;
+  list-style: disc;
+}
+.postcontent ol, .se-wrapper ol{
+  margin-bottom: 40px;
+  margin-top: 20px;
+  list-style: decimal;
+}
+
+
+
+
+.postcontent pre{
+  margin-top: 40px;
+  margin-bottom: 50px;
+  color: whitesmoke;
+  padding-top: 35px;
+  padding-bottom: 35px;
+  padding-right: 25px;
+  padding-left: 55px;
+  font-size: 15px;
+  background-color: #141a23;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  line-height: 1.9;
+  border-radius: 10px;
+}
+
+@media screen and (max-width:600px){
+  .postcontent pre{
+   padding: 20px;
+  }
+}
+
+.postcontent p, .postcontent p span, .se-wrapper p, .se-wrapper p span{
+  font-size: 16.5px !important;
+  word-spacing: 1.7px;
+  line-height: 35px;
+  margin-bottom: 50px;
+}
+
+.postcontent li, .se-wrapper li {
+  font-size: 16px !important;
+  margin-left: 30px;
+  word-spacing: 1.5px;
+  line-height: 28px;
+  margin-bottom: 20px;
+}
+
+@media screen and (max-width:480px){
+  .postcontent table{
+   overflow-x: auto;
+   display: block;
+  }
+}
+
+@media screen and (max-width:600px){
+  .postcontent p{
+   font-size: 16.5px;
+   line-height: 30px;
+   word-spacing: 1.5px;
+  }
+}
+
+.postcontent a {
+  text-decoration: none;
+  color: blue !important;
+}
+
+.postcontent p a:hover {
+  text-decoration: underline;
+}
+
+
+.postcontent h1, .postcontent h2{
+  margin-bottom: 10px;
+  margin-top: 10px;
+  font-weight: 700;
+}
+
+.postcontent h1 {
+  font-size: 33px;
+}
+
+.postcontent h2, .postcontent h2 span, .se-wrapper h2, .se-wrapper h2 span {
+  font-size: 30px;
+  word-spacing: 1.7px;
+}
+
+.postcontent h3, .postcontent h3 span, .se-wrapper h3, .se-wrapper h3 span {
+  margin-top: 10px;
+  margin-bottom: 15px;
+  font-size: 21px;
+  font-weight: 700;
+}
+
+
+
+.postcontent h4, .postcontent h5, .postcontent h6{
+  font-size: 20px;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+
+
+.postcontent table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 40px;
+  margin-top: 20px;
+}
+
+.postcontent td {
+  border: 1px solid rgb(196, 193, 193);
+  padding-right: 8px;
+  padding-left: 15px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-size: 16px;
+  word-spacing: 1.5px;
+  line-height: 28px;
+}
+
+.postcontent img {
+  display: block !important;
+  margin: auto !important;
+  margin-bottom: 50px !important;
+}
+
+
+
+
+
+.dark .postcontent h2 {color: whitesmoke;}
+
+
+
+
+
+ /* ------------------------ SunEditor --------------------- */
+
+.sun-editor .se-wrapper{
+  min-height: 1200px;
+}
+
+.se-wrapper{
+  height: 100vh !important;
+}
+
+
+.se-component figure{
+  margin: auto !important;
+  display: block !important;
+  padding-top: 15px;
+  padding-bottom: 30px;
+  max-width: 100% !important;
+}  
+
+.se-component figure img{
+  max-width: 98% !important;
+  height: auto !important;
+}
+
+.sun-editor .se-wrapper .se-placeholder {
+  font-size: 17px !important;
+  margin-bottom: 50px !important;
+}
+
+.sun-editor .se-toolbar {
+  background-color: white !important;
+}
+
+.sun-editor .se-btn-module-border {
+  border: none !important;
+}
+/* ------------------------ SunEditor --------------------- */
+
+
+
+
+
+
+
+/* ----------------------------------------------ScrollBar----------------------------------------- */
+
+::-webkit-scrollbar {
+  width: 12px;
+
+}
+
+::-webkit-scrollbar-track {
+  /* background-color: rgb(184, 184, 184); */
+  border-radius: 100vh;
+    background: #edf2f7;
+}
+
+::-webkit-scrollbar-thumb {
+  /* -webkit-border-radius: 10px;
+  border: 1px solid white;
+  background: black; */
+  background: #cbd5e0;
+  border-radius: 100vh;
+  border: 3px solid #edf2f7;
+}
+/* ----------------------------------------------ScrollBar----------------------------------------- */
+
+
+
+
+
+
+
+
+
+
+
+
