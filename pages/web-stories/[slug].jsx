@@ -265,6 +265,13 @@ export async function getStaticPaths() {
   const slugs = await webstoryslugs();
   return { paths: slugs.map((slugObject) => ({ params: { slug: slugObject.slug } })), fallback: "blocking" };
 }
+*/
+
+export async function getStaticPaths() {
+  const slugs = ["btc-slips-as-economic-indicators-shake"];
+  const paths = slugs.map(slug => ({ params: { slug } }));
+  return { paths, fallback: 'blocking' };
+}
 
 export async function getStaticProps({ params, res }) {
   try {
@@ -273,8 +280,11 @@ export async function getStaticProps({ params, res }) {
     return { props: { story: data.webstory } };
   } catch (error) { console.error(error); return { props: { errorCode: 500 } }; }
 }
-*/
 
+
+
+
+/*
 export async function getServerSideProps({ params }) {
   try {
     const data = await singleStory(params.slug);
@@ -287,5 +297,7 @@ export async function getServerSideProps({ params }) {
     return { props: { errorCode: 500 } };
   }
 }
+*/
+
 
 export default Stories;

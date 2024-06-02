@@ -177,13 +177,24 @@ const SingleBlogPost = ({ blog, errorCode }) => {
 
 };
 
+
+
+
+export async function getStaticPaths() {
+    const slugs = ["exploring-norway-a-journey-of-discovery", "europe's-most-popular-train-stations"];
+    const paths = slugs.map(slug => ({ params: { slug } }));
+    return { paths, fallback: 'blocking' };
+}
+
+
+
 /*
 export async function getStaticPaths() {
     const slugs = await allblogs();
     const paths = slugs.map((slugObject) => ({ params: { slug: slugObject.slug } }));
     return { paths, fallback: "blocking" };
 }
-
+*/
 export async function getStaticProps({ params }) {
     try {
         const data = await singleBlog(params.slug);
@@ -197,7 +208,9 @@ export async function getStaticProps({ params }) {
         return { props: { errorCode: 500 } };
     }
 }
-*/
+
+
+/*
 
 export async function getServerSideProps({ params }) {
     try {
@@ -216,5 +229,7 @@ export async function getServerSideProps({ params }) {
         return { props: { errorCode: 500 } };
     }
 }
+*/
+
 
 export default SingleBlogPost;
