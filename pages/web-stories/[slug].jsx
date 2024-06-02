@@ -260,7 +260,7 @@ const Stories = ({ story, errorCode }) => {
     </>
   );
 };
-
+/*
 export async function getStaticPaths() {
   const slugs = await webstoryslugs();
   return { paths: slugs.map((slugObject) => ({ params: { slug: slugObject.slug } })), fallback: "blocking" };
@@ -272,6 +272,20 @@ export async function getStaticProps({ params, res }) {
     if (data.webstory == null) { return { props: { errorCode: 404 } }; }
     return { props: { story: data.webstory } };
   } catch (error) { console.error(error); return { props: { errorCode: 500 } }; }
+}
+*/
+
+export async function getServerSideProps({ params }) {
+  try {
+    const data = await singleStory(params.slug);
+    if (data.webstory == null) {
+      return { props: { errorCode: 404 } };
+    }
+    return { props: { story: data.webstory } };
+  } catch (error) {
+    console.error(error);
+    return { props: { errorCode: 500 } };
+  }
 }
 
 export default Stories;

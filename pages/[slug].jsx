@@ -177,7 +177,7 @@ const SingleBlogPost = ({ blog, errorCode }) => {
 
 };
 
-
+/*
 export async function getStaticPaths() {
     const slugs = await allblogs();
     const paths = slugs.map((slugObject) => ({ params: { slug: slugObject.slug } }));
@@ -191,6 +191,25 @@ export async function getStaticProps({ params }) {
         const utcDate = new Date(data.blogpost.date);
         const istDate = utcToZonedTime(utcDate, 'Asia/Kolkata');
         const formattedDate = format(istDate, 'dd MMM, yyyy', { timeZone: 'Asia/Kolkata' });
+        return { props: { blog: { ...data.blogpost, relatedPosts: data.relatedPosts, formattedDate } } };
+    } catch (error) {
+        console.error(error);
+        return { props: { errorCode: 500 } };
+    }
+}
+*/
+
+export async function getServerSideProps({ params }) {
+    try {
+        const data = await singleBlog(params.slug);
+        if (data.error) {
+            return { props: { errorCode: 404 } };
+        }
+
+        const utcDate = new Date(data.blogpost.date);
+        const istDate = utcToZonedTime(utcDate, 'Asia/Kolkata');
+        const formattedDate = format(istDate, 'dd MMM, yyyy', { timeZone: 'Asia/Kolkata' });
+
         return { props: { blog: { ...data.blogpost, relatedPosts: data.relatedPosts, formattedDate } } };
     } catch (error) {
         console.error(error);

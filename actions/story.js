@@ -1,5 +1,5 @@
 import { DOMAIN } from '../config';
-const DOMAIN0 = "https://backend-train-blog.vercel.app";
+
 export const createwebstory = async (story, token) => {
     try {
         const response = await fetch(`${DOMAIN}/api/web-stories/create`, {
@@ -47,7 +47,7 @@ export const list = async (page, search, token) => {
 
 export const webstoryslugs = async () => {
     try {
-        const response = await fetch(`${DOMAIN0}/api/web-stories/webstoryslugs`, {
+        const response = await fetch(`${DOMAIN}/api/web-stories/webstoryslugs`, {
             method: 'GET'
         });
         return await response.json();
