@@ -1,6 +1,6 @@
 import fetch from 'isomorphic-fetch';
-// import { DOMAIN } from '@/config';
-const DOMAIN = process.env.DOMAIN;
+import { DOMAIN } from '@/config';
+const DOMAIN0 = "https://backend-train-blog.vercel.app";
 
 export const createBlog = async (blog, token) => {
     try {
@@ -38,7 +38,7 @@ export const listBlogsWithCategoriesAndTags = async () => {
 
 export const allblogs = async () => {
     try {
-        const response = await fetch(`${DOMAIN}/api/blog/sitemapslugs`, {
+        const response = await fetch(`${DOMAIN0}/api/blogs/sitemapslugs`, {
             method: 'GET',
             headers: {
                 Accept: 'application/json',

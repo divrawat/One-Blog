@@ -1,5 +1,5 @@
-// import { DOMAIN } from '../config';
-const DOMAIN = process.env.DOMAIN;
+import { DOMAIN } from '../config';
+const DOMAIN0 = "https://backend-train-blog.vercel.app";
 export const createwebstory = async (story, token) => {
     try {
         const response = await fetch(`${DOMAIN}/api/web-stories/create`, {
@@ -29,19 +29,6 @@ export const singleStory = async (slug) => {
 };
 
 
-
-// export const list0 = async() => {
-//     try {
-//         const response = await fetch(`${DOMAIN}/allwebstories`, {
-//             method: 'GET'
-//         });
-//         return await response.json();
-//     } catch (err) {
-//         return console.log(err);
-//     }
-// };
-
-
 export const list = async (page, search, token) => {
     try {
         const response = await fetch(`${DOMAIN}/api/web-stories/allwebstories?page=${page}&search=${search}`, {
@@ -60,7 +47,7 @@ export const list = async (page, search, token) => {
 
 export const webstoryslugs = async () => {
     try {
-        const response = await fetch(`${DOMAIN}/api/web-stories/webstoryslugs`, {
+        const response = await fetch(`${DOMAIN0}/api/web-stories/webstoryslugs`, {
             method: 'GET'
         });
         return await response.json();

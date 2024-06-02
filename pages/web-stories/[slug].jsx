@@ -260,7 +260,7 @@ const Stories = ({ story, errorCode }) => {
     </>
   );
 };
-/*
+
 export async function getStaticPaths() {
   const slugs = await webstoryslugs();
   return { paths: slugs.map((slugObject) => ({ params: { slug: slugObject.slug } })), fallback: "blocking" };
@@ -273,5 +273,5 @@ export async function getStaticProps({ params, res }) {
     return { props: { story: data.webstory } };
   } catch (error) { console.error(error); return { props: { errorCode: 500 } }; }
 }
-*/
+
 export default Stories;
