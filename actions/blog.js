@@ -37,7 +37,7 @@ export const listBlogsWithCategoriesAndTags = async () => {
 
 export const allblogs = async () => {
     try {
-        const response = await fetch(`${DOMAIN}/api/blogs/sitemapslugs`, {
+        const response = await fetch(`${DOMAIN}/api/blog/sitemapslugs`, {
             method: 'GET',
             headers: {
                 Accept: 'application/json',

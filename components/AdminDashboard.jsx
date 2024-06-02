@@ -64,7 +64,7 @@ const AdminDashboard = ({ children }) => {
                 { pathname: '/admin/add-blog', target: "_blank", icon: <FaPlus size={20} />, text: 'Add Post' },
                 { pathname: '/admin/edit-blogs', icon: <MdEditSquare size={20} />, text: 'All Posts' },
                 { pathname: '/admin/draft-blogs', icon: <MdEditSquare size={20} />, text: 'Drafts' },
-                { pathname: '/admin/blogs-bulk', icon: <MdEditSquare size={20} />, text: 'Bulk' },
+                // { pathname: '/admin/blogs-bulk', icon: <MdEditSquare size={20} />, text: 'Bulk' },
             ]
         },
 

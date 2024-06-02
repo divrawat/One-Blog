@@ -84,12 +84,18 @@ const handler = async (req, res) => {
                     const updatedBlog = await Blog.findByIdAndUpdate(blog._id, { $push: { categories: { $each: arrayOfCategories } } },
                         { new: true }).populate({ path: 'postedBy', model: User }).exec();
 
-                    const { slug } = req.query;
-                    await Draft.findOneAndDelete({ slug }).exec();
-
+                    if (req.query.slug !== blog.slug) {
+                        const { slug } = req.query;
+                        await Draft.findOneAndDelete({ slug }).exec();
+                        fetch(`${DOMAIN}/api/revalidate?path=/${blog.slug}`, { method: 'POST' });
+                    }
+                    else if (req.query.slug === blog.slug) {
+                        await Draft.findOneAndDelete({ slug }).exec();
+                        fetch(`${DOMAIN}/api/revalidate?path=/${slug}`, { method: 'POST' });
+                    }
                     res.json(updatedBlog);
 
-                    fetch(`${DOMAIN}/api/revalidate?path=/${blog.slug}`, { method: 'POST' });
+
                 } catch (err) { console.log(err); }
             }
 
@@ -114,7 +120,6 @@ const handler = async (req, res) => {
                         else if (key === 'status') { draft.status = status; }
                     });
                     const savedDraft = await draft.save();
-
                     return res.status(200).json(savedDraft);
 
                 } catch (error) { console.log(error); return res.status(500).json({ error: "Internal Server Error" }); }

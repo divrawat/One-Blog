@@ -45,6 +45,7 @@ const handler = async (req, res) => {
             const data = await Blog.findOneAndDelete({ slug }).exec();
             if (!data) { return res.status(400).json({ error: 'Blog not found' }); }
             res.json({ message: 'Blog deleted successfully' });
+            fetch(`${DOMAIN}/api/revalidate?path=/${slug}`, { method: 'POST' });
         } catch (err) { res.status(400).json({ error: "Internal Server Error" }); }
     }
 
@@ -56,7 +57,6 @@ const handler = async (req, res) => {
         if (!slug) { return res.status(404).json({ error: 'Blog or Draft not found' }) }
         upload.none()(req, res, async (err) => {
             if (err) { return res.status(400).json({ error: 'Something went wrong' }) }
-
             if (req.body.status === 'Publish') {
                 try {
                     let blog = await Blog.findOne({ slug }).exec();
@@ -77,10 +77,15 @@ const handler = async (req, res) => {
                         else if (key === 'status') { blog.status = status; }
                     });
                     const savedBlog = await blog.save();
-
-                    fetch(`${DOMAIN}/api/revalidate?path=/${blog.slug}`, { method: 'POST' });
+                    if (req.query.slug !== blog.slug) {
+                        const { slug } = req.query;
+                        fetch(`${DOMAIN}/api/revalidate?path=/${slug}`, { method: 'POST' });
+                        fetch(`${DOMAIN}/api/revalidate?path=/${blog.slug}`, { method: 'POST' });
+                    }
+                    else if (req.query.slug === blog.slug) {
+                        fetch(`${DOMAIN}/api/revalidate?path=/${blog.slug}`, { method: 'POST' });
+                    }
                     return res.status(200).json(savedBlog);
-
                 } catch (error) { console.log(error); return res.status(500).json({ error: "Internal Server Error" }); }
             }
 
@@ -110,14 +115,13 @@ const handler = async (req, res) => {
                         await draft.save();
                         const updateddraft = await Draft.findByIdAndUpdate(draft._id, { $push: { categories: { $each: arrayOfCategories } } },
                             { new: true }).populate({ path: 'postedBy', model: User }).exec();
+
                         const { slug } = req.query;
                         await Blog.findOneAndDelete({ slug }).exec();
-                        fetch(`${DOMAIN}/api/revalidate?path=/${draft.slug}`, { method: 'POST' });
+                        fetch(`${DOMAIN}/api/revalidate?path=/${slug}`, { method: 'POST' });
 
                         res.json(updateddraft);
-
                     } catch (err) { console.log(err); return res.status(500).json({ error: "Slug Should Be Unique" }); }
-
                 }
                 catch (error) { console.log(error); return res.status(500).json({ error: "Internal Server Error" }); }
             }

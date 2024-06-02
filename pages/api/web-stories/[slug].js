@@ -33,6 +33,7 @@ const handler = async (req, res) => {
                 return res.status(404).json({ error: 'WebStory not found' });
             }
             res.json({ message: 'WebStory deleted successfully' });
+            fetch(`${DOMAIN}/api/revalidate?path=/web-stories/${slug}`, { method: 'POST' });
         } catch (err) {
             console.log(err);
             return res.status(500).json({ error: "Something went wrong" });
