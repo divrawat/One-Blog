@@ -12,8 +12,8 @@ const token = getCookie('token');
 const Admin = () => {
     const router = useRouter();
     const [values, setValues] = useState({
-        email: 'divrawat2001@gmail.com',
-        password: 'Divyanshu1@23456789',
+        email: '',
+        password: '',
         error: '',
         loading: false,
         message: '',
