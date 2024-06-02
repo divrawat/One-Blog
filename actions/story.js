@@ -1,5 +1,5 @@
-import { DOMAIN } from '../config';
-
+// import { DOMAIN } from '../config';
+const DOMAIN = process.env.DOMAIN;
 export const createwebstory = async (story, token) => {
     try {
         const response = await fetch(`${DOMAIN}/api/web-stories/create`, {

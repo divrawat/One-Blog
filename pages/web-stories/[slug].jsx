@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { singleStory, webstoryslugs } from "../../actions/story";
-import { API, DOMAIN, APP_NAME, MY_API } from "../../config";
+import { DOMAIN, APP_NAME } from "../../config";
 import Script from 'next/script';
 import { format } from 'date-fns';
 export const config = { amp: true };
@@ -144,8 +144,8 @@ const Stories = ({ story, errorCode }) => {
       <meta property="article:modified_time" content={`${story?.date}`} />
       <link rel="icon" href={`${DOMAIN}/images/logo-32x32.png`} sizes="32x32" />
       <link rel="icon" href={`${DOMAIN}/images/logo-192x192.png`} sizes="192x192" />
-      <link rel={`${MY_API}`} href={`${API}`} />
-      <link rel="alternate" type="application/json" href={`${API}/webstories/${story?.slug}`} />
+      <link rel={`${DOMAIN}/api`} href={`${DOMAIN}/api`} />
+      <link rel="alternate" type="application/json" href={`${DOMAIN}/api/webstories/${story?.slug}`} />
       <link rel="apple-touch-icon" href={`${DOMAIN}/images/logo-180x180.png`} />
       <link rel="alternate" type="application/rss+xml" title={`${APP_NAME} - Feed`} href={`${DOMAIN}/feeds.xml`} />
       {/* <link rel="alternate" type="application/rss+xml" title={`${APP_NAME} » Stories Feed`} href="https://www.liquorprices.in/web-stories/feed/" /> */}
@@ -260,28 +260,18 @@ const Stories = ({ story, errorCode }) => {
     </>
   );
 };
-
-
-
+/*
 export async function getStaticPaths() {
   const slugs = await webstoryslugs();
   return { paths: slugs.map((slugObject) => ({ params: { slug: slugObject.slug } })), fallback: "blocking" };
 }
 
-
-
 export async function getStaticProps({ params, res }) {
   try {
     const data = await singleStory(params.slug);
-    if (data.webstory == null) {
-      return { props: { errorCode: 404 } };
-    }
-
+    if (data.webstory == null) { return { props: { errorCode: 404 } }; }
     return { props: { story: data.webstory } };
-  } catch (error) {
-    console.error(error);
-    return { props: { errorCode: 500 } };
-  }
+  } catch (error) { console.error(error); return { props: { errorCode: 500 } }; }
 }
-
+*/
 export default Stories;

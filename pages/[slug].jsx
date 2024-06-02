@@ -177,6 +177,7 @@ const SingleBlogPost = ({ blog, errorCode }) => {
 
 };
 
+
 export async function getStaticPaths() {
     const slugs = await allblogs();
     const paths = slugs.map((slugObject) => ({ params: { slug: slugObject.slug } }));

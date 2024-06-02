@@ -1,5 +1,6 @@
 import fetch from 'isomorphic-fetch';
-import { DOMAIN } from '@/config';
+// import { DOMAIN } from '@/config';
+const DOMAIN = process.env.DOMAIN;
 
 export const createBlog = async (blog, token) => {
     try {

@@ -6,7 +6,9 @@ import multer from 'multer';
 const upload = multer({});
 export const config = { api: { bodyParser: false }, };
 import fetch from 'isomorphic-fetch';
-import { DOMAIN } from "@/config";
+// import { DOMAIN } from "@/config";
+
+// const DOMAIN = process.env.DOMAIN;
 
 const handler = async (req, res) => {
     if (req.method === 'GET') {

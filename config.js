@@ -1,12 +1,7 @@
 // export const DOMAIN = "https://trainspeedtest.in.net";
 
 
-
-export const API = "http://localhost:3000";
-export const DOMAIN = "http://localhost:3000";
-
-
-
+export const DOMAIN = "https://one-blog-nine.vercel.app";
 
 export const APP_DESCRIPTION = 'Welcome to our Train Speed Test Tool, where you can have a bit of fun exploring how fast different trains zip around! 🚂💨 Whether you&apos;re a big train fan or just curious, our website lets you peek into the speedy world of trains in a super easy way.';
 
@@ -29,7 +24,3 @@ export const FooterLinks = [
   { text: 'Disclaimer', href: '/disclaimer' },
   { text: 'Privacy Policy', href: '/privacy-policy' }
 ];
-
-
-
-
