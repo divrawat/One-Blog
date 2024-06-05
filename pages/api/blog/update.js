@@ -6,10 +6,23 @@ const upload = multer({});
 export const config = { api: { bodyParser: false }, };
 import fetch from 'isomorphic-fetch';
 import { DOMAIN } from "@/config";
+import jwt from 'jsonwebtoken';
 
 const handler = async (req, res) => {
     if (req.method !== 'POST') { return res.status(405).json({ error: 'Method not allowed' }); }
     await connectMongo();
+
+    const token = req.headers.authorization?.split(' ')[1];
+    if (!token) { return res.status(401).json({ message: 'Authentication token is missing' }); }
+
+    try {
+        const decodedToken = jwt.verify(token, process.env.JWT_SECRET);
+        console.log(decodedToken);
+        if (decodedToken.role !== 1) {
+            return res.status(403).json({ message: 'You do not have permission to access this resource' });
+        }
+    }
+    catch (error) { return res.status(401).json({ message: 'Invalid or expired token' }); }
 
     upload.none()(req, res, async (err) => {
         if (err) { return res.status(400).json({ error: 'Something went wrong' }) }

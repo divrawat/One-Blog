@@ -39,10 +39,7 @@ const EditBlogPage = () => {
     const { error, success, loading, formData, title, draft, updatetext, mtitle, mdesc, slug, userId, date, photo } = values;
     const token = getCookie('token');
 
-    useEffect(() => {
-        initBlog();
-        initCategories();
-    }, [router]);
+    useEffect(() => { initBlog(); initCategories(); }, [router]);
 
     const editBlog = (e, status) => {
         e.preventDefault();

@@ -10,7 +10,7 @@ const handler = async (req, res) => {
         const user = await User.findOne({ email });
         if (!user) { return res.status(401).json({ error: 'User not found' }); }
         if (!user.authenticate(password)) { return res.status(401).json({ error: 'Email and password do not match' }); }
-        const token = jwt.sign({ _id: user._id }, process.env.JWT_SECRET, { expiresIn: '7d' });
+        const token = jwt.sign({ _id: user._id, role: user.role }, process.env.JWT_SECRET, { expiresIn: '7d' });
         return res.status(200).json({
             token, user: { _id: user._id, name: user.name, email: user.email, role: user.role }
         });

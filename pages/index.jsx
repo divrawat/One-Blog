@@ -380,8 +380,8 @@ const Home = ({ blogs }) => {
 
 
 
-                <h2 className="text-3xl font-bold bg-black mt-[45px] p-3 text-center">Blogs</h2>
-                <div className="flex sm:gap-[70px] gap-5 md:pt-10 pt-3 pb-5 px-3 text-[black] justify-center mx-auto flex-wrap">{showAllBlogs()}</div>
+                {/* <h2 className="text-3xl font-bold bg-black mt-[45px] p-3 text-center">Blogs</h2> */}
+                {/* <div className="flex sm:gap-[70px] gap-5 md:pt-10 pt-3 pb-5 px-3 text-[black] justify-center mx-auto flex-wrap">{showAllBlogs()}</div> */}
 
 
                 {/* <img src="/images/train.webp" alt="White Bullet Train" className="md:w-[100%]" /> */}
