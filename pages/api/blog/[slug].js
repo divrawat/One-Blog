@@ -19,7 +19,7 @@ const handler = async (req, res) => {
         const { slug } = req.query;
         try {
             const blogpost = await Blog.findOne({ slug })
-                .populate({ path: 'postedBy', model: User, select: '-_id name username' })
+                .populate({ path: 'postedBy', model: User, select: 'name username' })
                 .populate({ path: 'categories', model: Category, select: 'name slug' })
                 .select('photo title body slug mtitle mdesc date categories tags postedBy').exec();
             if (!blogpost) { return res.status(404).json({ error: 'BlogPost not found' }); }

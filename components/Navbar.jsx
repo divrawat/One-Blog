@@ -31,13 +31,13 @@ export default function Navbar() {
                 </div>
 
                 <div className="md:pb-0  md:mt-0  md:bg-transparent ">
-                    <ul id="menu" ref={menuRef} className="md:flex md:space-x-10 md:pb-0 pb-4 items-center font-bold  text-center leading-[3] hidden">
+                    {/* <ul id="menu" ref={menuRef} className="md:flex md:space-x-10 md:pb-0 pb-4 items-center font-bold  text-center leading-[3] hidden">
                         {navLinks.map((link, index) => (
                             <li key={index}>
                                 <Link href={link.href} className="hover:text-[#a5a5f3]  hover:underline">{link.text}</Link>
                             </li>
                         ))}
-                    </ul>
+                    </ul> */}
                 </div>
             </div>
         </nav>
