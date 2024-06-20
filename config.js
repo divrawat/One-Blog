@@ -7,7 +7,7 @@ export const APP_DESCRIPTION = 'Welcome to our Train Speed Test Tool, where you 
 // Navbar
 export const logo = <img src="/images/train-logo.png" alt="Logo" className="h-[40px] w-[50px] mr-5 md:ml-0 ml-4 md:my-0 my-1" />
 export const APP_NAME = 'Train Speed Test';
-export const NavbarName = "Train Blog";
+export const NavbarName = "Train Speed Test";
 export const navLinks = [
   { text: 'Trains', href: '/categories/trains' },
   { text: 'Travel Guides', href: '/categories/travel-guides' },
@@ -23,3 +23,15 @@ export const FooterLinks = [
   { text: 'Disclaimer', href: '/disclaimer' },
   { text: 'Privacy Policy', href: '/privacy-policy' }
 ];
+
+
+
+
+
+
+
+
+
+
+
+
