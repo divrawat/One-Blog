@@ -12,7 +12,7 @@ import { IoHappySharp } from "react-icons/io5";
 import { FaTachometerAlt } from "react-icons/fa";
 import { FaCarRear } from "react-icons/fa6";
 import { PiPaintBucketFill } from "react-icons/pi";
-import { DOMAIN } from "@/config";
+import { DOMAIN, APP_NAME } from "@/config";
 import Link from "next/link";
 import { listBlogsWithCategoriesAndTags } from "../actions/blog";
 import Card from "@/components/Card";
@@ -234,10 +234,6 @@ const Home = ({ blogs }) => {
   const description = "Welcome here to check your train speed, where you can have a bit of fun exploring how fast different trains zip around! 🚂💨 Whether you&apos;re a big train fan or just curious, our website lets you peek into the speedy world of trains in a super easy way."
 
 
-
-  var currentDate = new Date();
-  var formattedDate = currentDate.toISOString().slice(0, 10);
-
   const schema =
   {
     "@context": "https://schema.org",
@@ -262,8 +258,6 @@ const Home = ({ blogs }) => {
         "url": "https://trainspeedtest.in.net/train.jpg"
       }
     },
-    "datePublished": "2024-02-02",
-    "dateModified": formattedDate
   }
 
 
@@ -322,7 +316,7 @@ const Home = ({ blogs }) => {
       <meta name="description" content={description} />
       <meta name="robots" content="follow, index, noarchive, max-snippet:-1, max-video-preview:-1, max-image-preview:large" />
       <link rel="canonical" href={DOMAIN} />
-      <meta property="og:title" content={`${DOMAIN}:  Check Your Train Speed Now`} />
+      <meta property="og:title" content={`${APP_NAME}:  Check Your Train Speed Now`} />
       <meta property="og:description" content={description} />
       <meta property="og:locale" content="en_US" />
       <meta property="og:type" content={DOMAIN} />
