@@ -14,8 +14,6 @@ import { FaCarRear } from "react-icons/fa6";
 import { PiPaintBucketFill } from "react-icons/pi";
 import { DOMAIN, APP_NAME } from "@/config";
 import Link from "next/link";
-import { listBlogsWithCategoriesAndTags } from "../actions/blog";
-import Card from "@/components/Card";
 import { format, utcToZonedTime } from 'date-fns-tz';
 import Script from 'next/script';
 
@@ -373,12 +371,6 @@ const Home = ({ blogs }) => {
                 <p className="mb-[35px] text-center text-[17.5px]"> Now you will have a question of this tool&apos;s accuracy, generally it is not 100% accurate as it is dependent on Browser&apos;s GeoLocation API and your Internet speed.</p>
 
 
-
-                {/* <h2 className="text-3xl font-bold bg-black mt-[45px] p-3 text-center">Blogs</h2> */}
-                {/* <div className="flex sm:gap-[70px] gap-5 md:pt-10 pt-3 pb-5 px-3 text-[black] justify-center mx-auto flex-wrap">{showAllBlogs()}</div> */}
-
-
-                {/* <img src="/images/train.webp" alt="White Bullet Train" className="md:w-[100%]" /> */}
                 <h2 className="text-3xl font-bold bg-black mt-[45px] text-white p-3 text-center">Requirements</h2>
 
                 <p className="mt-[25px]">1. To check your train speed You should have a smartphone with both GPS and Internet.</p>
