@@ -17,7 +17,7 @@ import Link from "next/link";
 import { format, utcToZonedTime } from 'date-fns-tz';
 import Script from 'next/script';
 
-const Home = ({ blogs }) => {
+const Home = () => {
 
 
   const showAllBlogs = () => {
@@ -532,23 +532,6 @@ const Home = ({ blogs }) => {
     </>
   );
 }
-
-export async function getStaticProps() {
-  try {
-    const data = await listBlogsWithCategoriesAndTags();
-    const formattedBlogs = data.blogs.map(blog => {
-      const utcDate = new Date(blog.date);
-      const istDate = utcToZonedTime(utcDate, 'Asia/Kolkata');
-      const formattedDate = format(istDate, 'dd MMM, yyyy', { timeZone: 'Asia/Kolkata' });
-      return { ...blog, formattedDate };
-    });
-    return { props: { blogs: formattedBlogs } };
-  } catch (error) {
-    console.error("Error fetching data:", error);
-    return { props: { blogs: [] } };
-  }
-}
-
 
 
 
