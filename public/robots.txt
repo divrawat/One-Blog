@@ -3,4 +3,3 @@ Disallow: /admin
 Disallow: /admin/*
 Disallow: /public/images/*
 Disallow: /config
-Sitemap: https://trainspeedtest.in.net/sitemap.xml
