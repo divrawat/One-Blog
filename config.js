@@ -9,10 +9,11 @@ export const logo = <img src="/images/train-logo.png" alt="Logo" className="h-[4
 export const APP_NAME = 'Train Speed Test';
 export const NavbarName = "Train Speed Test";
 export const navLinks = [
-  { text: 'Trains', href: '/categories/trains' },
-  { text: 'Travel Guides', href: '/categories/travel-guides' },
-  { text: 'News', href: '/categories/news' },
-  { text: 'Train Stations', href: '/categories/train-stations' },
+  { text: 'About', href: '/about' },
+  { text: 'Contact', href: '/contact' },
+  { text: 'Disclaimer', href: '/disclaimer' },
+  { text: 'Privacy Policy', href: '/privacy-policy' },
+  { text: 'Jinx Manga', href: 'https://jinxmanga.in.net' }
 ];
 
 
