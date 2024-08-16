@@ -354,7 +354,7 @@ const Home = () => {
               <div className="text-center font-bold text-2xl mt-5 ">{speed.toFixed(2)} km/hr</div>
 
               <div className="flex justify-center items-center mt-8">
-                <a href="https://thampolsi.com/4/7457654" target="_blank" onClick={calculate} className="flex items-center border border-gray-300 bg-black text-white px-4 py-2 tracking-wider font-bold rounded-md transition duration-300 ease-in-out hover:bg-[#2b2a2b] hover:text-gray-300">
+                <a target="_blank" href="https://thampolsi.com/4/7457654" onClick={calculate} className="flex items-center border border-gray-300 bg-black text-white px-4 py-2 tracking-wider font-bold rounded-md transition duration-300 ease-in-out hover:bg-[#2b2a2b] hover:text-gray-300">
                   {isGeolocationActive ? (<><AiFillStop className="mr-2" color="#ff3838" />STOP</>) : (<><FaStopwatch className="mr-2" color="#84fb66" />START</>)}
                 </a>
               </div>
