@@ -41,6 +41,8 @@ const PrivacyPolicy = () => {
                         <p className="mt-2 mb-[20px]">This Website is for Sale.</p>
                         <p className="mt-2 mb-[40px]">Contact Email: divrawat2001@gmail.com</p>
 
+                        <p className="mt-2 mb-[40px]">We can negotiate the price</p>
+
 
 
 
