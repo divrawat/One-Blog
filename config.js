@@ -14,7 +14,7 @@ export const navLinks = [
   // { text: 'Disclaimer', href: '/disclaimer' },
   // { text: 'Privacy Policy', href: '/privacy-policy' },
   { text: 'Website For Sale', href: '/website-for-sale' },
-  { text: 'Jinx Manga', href: 'https://jinxmanga.in.net' }
+  // { text: 'Jinx Manga', href: 'https://jinxmanga.in.net' }
 ];
 
 
